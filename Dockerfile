@@ -4,9 +4,9 @@ EXPOSE 80
 
 FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /src
-COPY Books.API/Books.API.csproj Books.API/
+COPY src/Books/Books.API/Books.API.csproj Books.API/
 RUN dotnet restore Books.API/Books.API.csproj
-COPY . .
+COPY src/Books/. .
 WORKDIR /src/Books.API
 RUN dotnet build Books.API.csproj -c Release -o /app
 
